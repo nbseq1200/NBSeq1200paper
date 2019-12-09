@@ -1,0 +1,107 @@
+---
+title: "Sensitivity and Specificity"
+author: "Yaqiong Wang"
+date: "3/4/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = '~/Research/NBSeq/submit/table_plot')
+```
+
+
+## Sensitivity of individual disorders
+```{r}
+library(PropCIs)
+library(scales)
+library(ggplot2)
+
+setwd("data/reviewed_v1/")
+sens<-read.table("summary_disorder.tsv",sep="\t",header = T)
+
+pipeline = "test_AA10.1"
+
+sens<-subset(sens,Pipeline==pipeline,select = c("DisorderID","TP","FN","FN.FP","affected"))
+row1<-which(sens$DisorderID==2)
+row2<-which(sens$DisorderID==4)
+sens[row1,]<-sens[row1,]+sens[row2,]
+sens[row1,"DisorderID"]<-2
+sens<-sens[-row2,]
+sens$missed<-sens$FN+sens$FN.FP
+# 33 SCAD were reclassified by UCSF clinical standard in test_AA10.1
+sens[sens$DisorderID==77,"missed"]<-sens[sens$DisorderID==77,"missed"]-33
+sens[sens$DisorderID==77,"affected"]<-sens[sens$DisorderID==77,"affected"]-33
+sens$sensitivity.percent<-round(sens$TP/sens$affected,3)*100
+sens$lower.percent<-apply(sens,1,function(x){ c1<-as.numeric(x["TP"]); c2<-as.numeric(x["affected"]); round(exactci(c1,c2,0.95)[[1]][1],3)*100})
+sens$upper.percent<-apply(sens,1,function(x){ c1<-as.numeric(x["TP"]); c2<-as.numeric(x["affected"]); round(exactci(c1,c2,0.95)[[1]][2],3)*100})
+
+sens$sensitivity.CI<-apply(sens,1,function(x){c1<-x["lower.percent"];c2<-x["upper.percent"];paste(c1,c2,sep="-")})
+
+sens2<-subset(sens,select = c("DisorderID","TP","missed","affected","sensitivity.percent","sensitivity.CI"))
+
+```
+
+
+
+##Specificity of individual disorders
+```{r}
+setwd("data/reviewed_v1/")
+filename <- paste(pipeline,"spec.tsv",sep=".")
+filename <- file.path("specificity",filename)
+spec<-read.table(filename,sep="\t", header =T)
+
+spec$tn.adj<-spec$Assays-spec$FPs*spec$NumOfGenes
+spec$Specificity.percent<-round(spec$tn.adj/spec$Assays,3)*100
+spec$lower.percent<-apply(spec,1,
+                          function(x){c1<-as.numeric(x["tn.adj"]); 
+                          c2<-as.numeric(x["Assays"]); 
+                          round(exactci(c1,c2,0.95)[[1]][1],3)*100}
+  )
+
+spec$upper.percent<-apply(spec,1,
+                          function(x){c1<-as.numeric(x["tn.adj"]); 
+                          c2<-as.numeric(x["Assays"]); 
+                          round(exactci(c1,c2,0.95)[[1]][2],3)*100})
+
+spec$specificity.CI<-apply(spec,1,function(x){c1<-x["lower.percent"];c2<-x["upper.percent"];paste(c1,c2,sep="-")})
+
+spec2<-subset(spec,select = c("Disorder","Specificity.percent","specificity.CI"))
+
+```
+
+
+## The sensitivity and specificity table
+
+**remove disorders that don't have sensitivity data**
+```{r}
+setwd("data")
+x<-merge(sens2,spec2,by.x = "DisorderID",by.y = "Disorder")
+condition<-read.table("Disease_Dic_v10_conditions_180601.txt",sep = "\t",header=T)
+names(condition)<-c("DisorderID","Conditions","full.name","DiseaseName")
+condition<-condition[-c(1,60),]
+#condition[condition$Conditions=="Not on RUSP","Conditions"]<-"Secondary"
+
+y<-merge(condition,x)
+y$sensitivity.CI2<-apply(y,1,function(x){ c1<-x["sensitivity.percent"]; c2<-x["sensitivity.CI"];
+  paste(c1," (",c2,")",sep="")
+  
+})
+
+y$specificity.CI2<-apply(y,1,function(x){ c1<-x["Specificity.percent"]; c2<-x["specificity.CI"];
+  paste(c1," (", c2,")",sep="")
+  
+})
+
+y<-subset(y,select = c("Conditions","DiseaseName","TP","missed","affected","sensitivity.CI2","specificity.CI2"))
+
+outfilename<-paste(pipeline,"sens.spec.tsv",sep=".")
+#write.table(y,file=file.path("Output",outfilename),row.names = F, col.names = T,sep="\t")
+
+y
+```
+
+
+
+
+

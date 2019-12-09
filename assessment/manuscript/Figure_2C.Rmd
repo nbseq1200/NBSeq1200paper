@@ -1,0 +1,147 @@
+---
+title: "NBSeq1200 Figure"
+author: "Yaqiong Wang"
+date: "5/25/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("ggplot2")
+library("dplyr")
+library("reshape2")
+#library("export")
+
+#read data
+dis<-read.table("data/reviewed_v1/summary_disorder.tsv",sep="\t",header = T)
+shortname<-read.table("data/Disease_Dic_v10_conditions_180601.txt",sep="\t",header=T)
+
+
+dis.pipeline<-subset(dis,Pipeline=="test_AA10.1")
+shortname$DisorderID<-as.character(shortname$DisorderID)
+
+dis.pipeline[which(dis.pipeline$DisorderID %in% c(2,4)),"DisorderID"]<-"2"
+dis.pipeline[which(dis.pipeline$DisorderID %in% c(85,86,94)),"DisorderID"]<-"94"
+dis.pipeline<- dis.pipeline %>% 
+  group_by(DisorderID) %>% 
+  summarise(TP=sum(TP),FN=sum(FN),FN.FP=sum(FN.FP),affected=sum(affected))
+
+dis.data0<-merge(dis.pipeline,shortname)
+dis.data0$misscase<-dis.data0$FN+dis.data0$FN.FP
+
+scad.count=33
+dis.data0$misscase[which(dis.data0$short.name=="SCAD")]<-dis.data0$misscase[which(dis.data0$short.name=="SCAD")]-scad.count
+
+dis.data0$affected[which(dis.data0$short.name=="SCAD")]<-dis.data0$affected[which(dis.data0$short.name=="SCAD")]-scad.count
+
+dis.data0$sen<-scales::percent(dis.data0$TP/dis.data0$affected)
+dis.data<-subset(dis.data0,select=c("DisorderID","short.name","TP","misscase","sen"),condition=="Core")
+
+dis.data<-dis.data[rev(order(-dis.data$TP/(dis.data$misscase+0.01),-dis.data$TP,-(dis.data$misscase),decreasing = F)),]
+
+namelist<-as.character(dis.data$short.name)
+
+dis.data.long<-melt(
+  dis.data,
+  id.vars = c("DisorderID","short.name","sen"),variable.name = "Disease",value.name = "case")
+dis.data.long<-subset(dis.data.long,case != 0)
+dis.data.long$short.name<-factor(dis.data.long$short.name,levels = namelist)
+
+gg_color_hue <- function(n,lv=65,cl=100) {
+  hues = seq(15, 375, length=n+1)
+  hcl(h=hues, l=lv, c=cl)[1:n]
+}
+myColors1 <- gg_color_hue(n=6)
+names(myColors1) <- c("FP","misscase","TP","TP+FP","TN","FN.FP")
+
+
+p1<-ggplot()+
+  geom_bar(data=subset(dis.data.long,Disease =="TP"),
+           aes(x=short.name,y=case,fill=Disease),stat="identity")+
+  geom_text(data=subset(dis.data.long,Disease =="TP"),
+            aes(x=short.name,y=case+0.5,label=paste(case," (",sen,")",sep="")),size=5,hjust = 0)+
+  geom_bar(data=subset(dis.data.long,Disease=="misscase"),
+           aes(x=short.name,y=-case,fill=Disease),stat="identity",position="stack")+
+  geom_text(data=subset(dis.data.long,Disease == "misscase"),
+            aes(x=short.name,y=-case-0.5,label=case),size=5,hjust = 1)+
+ 
+  scale_fill_manual(values=myColors1)+
+  scale_x_discrete("disorder",limits=namelist,label=as.character(namelist))+
+  ylim(-17,175)+
+  #theme_classic()+
+  theme(
+    text = element_text(size=18),
+    axis.text.x=element_blank(),
+    axis.text.y = element_text(colour = "black",vjust = 0.5,hjust = 1,family = "Arial"),
+    axis.line = element_blank(),
+    axis.ticks.x = element_blank(),
+    panel.grid = element_blank(), 
+    panel.background = element_blank(),
+        plot.margin=unit(c(0.1, 0.1, 0.7, 1.4),"cm"))+
+  guides(fill=F)+
+  geom_hline(yintercept=0)+
+  coord_flip()
+ 
+p1
+
+#graph2ppt(p1,file="core.ppt")
+```
+
+```{r}
+
+dis.data<-subset(dis.data0,select=c("DisorderID","short.name","TP","misscase","sen"),condition=="Secondary")
+
+dis.data<-dis.data[rev(order(-dis.data$TP/(dis.data$misscase+0.01),-dis.data$TP,-(dis.data$misscase),decreasing = F)),]
+
+namelist<-as.character(dis.data$short.name)
+
+dis.data.long<-melt(
+  dis.data,
+  id.vars = c("DisorderID","short.name","sen"),variable.name = "Disease",value.name = "case")
+dis.data.long<-subset(dis.data.long,case != 0)
+dis.data.long$short.name<-factor(dis.data.long$short.name,levels = namelist)
+
+gg_color_hue <- function(n,lv=65,cl=100) {
+  hues = seq(15, 375, length=n+1)
+  hcl(h=hues, l=lv, c=cl)[1:n]
+}
+myColors1 <- gg_color_hue(n=6)
+names(myColors1) <- c("FP","misscase","TP","TP+FP","TN","FN.FP")
+
+
+p1<-ggplot()+
+  geom_bar(data=subset(dis.data.long,Disease =="TP"),
+           aes(x=short.name,y=case,fill=Disease),stat="identity")+
+  geom_text(data=subset(dis.data.long,Disease =="TP"),
+            aes(x=short.name,y=case+0.5,label=paste(case," (",sen,")",sep="")),size=5,hjust = 0)+
+  geom_bar(data=subset(dis.data.long,Disease=="misscase"),
+           aes(x=short.name,y=-case,fill=Disease),stat="identity",position="stack")+
+  geom_text(data=subset(dis.data.long,Disease == "misscase"),
+            aes(x=short.name,y=-case-0.5,label=case),size=5,hjust = 1)+
+  scale_fill_manual(values=myColors1)+
+  scale_x_discrete("disorder",limits=namelist,label=as.character(namelist))+
+  ylim(-17,175)+
+  theme(
+    text = element_text(size=18),
+    axis.text.x=element_blank(),
+    axis.text.y = element_text(colour = "black",vjust = 0.5,hjust = 1,family = "Arial"),
+    axis.line = element_blank(),
+    axis.ticks.x = element_blank(),
+    panel.grid = element_blank(), 
+    panel.background = element_blank(),
+        plot.margin=unit(c(0.1, 0.1, 0.7, 1.4),"cm"))+
+  guides(fill=F)+
+  geom_hline(yintercept=0)+
+  coord_flip()
+
+p1
+  
+#graph2ppt(p1,file="Secondary.ppt")
+
+```
+
+
+
