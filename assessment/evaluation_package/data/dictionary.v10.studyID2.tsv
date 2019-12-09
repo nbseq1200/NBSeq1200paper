@@ -1,0 +1,60 @@
+DiseaseID	Disease Description (Name)	CDPH screen	Gene(s)
+0	No Disease	None	None
+1	Phenylketonuria (PKU) 	PKU	PAH
+2	Hyperphenylalaninemia, variant	PKU	PAH
+3	Biopterin Disorders, co-factor biosynthesis	PKU	GCH1, PTS
+4	Hyperphenylalaninemia, benign	PKU	PAH
+42	2-Methylbutyryl-CoA Dehydrogenase Deficiency (2MBCD)	IVA	ACADSB
+43	3-Hydroxy-3-Methylglutaryl-CoA Lyase Deficiency (HMG CoA Lyase Deficiency/Glutaric Aciduria)	3MCC	HMGCL
+44	3-Methylcrotonyl-CoA Carboxylase Deficiency (3MCC Deficiency)	3MCC	MCCC1, MCCC2
+45	3-Methylglutaconyl-Co-A Hydrotase Deficiency type I (MGA)	3MCC	AUH
+46	3-Methylglutaconyl-Co-A Hydrotase Deficiency type II (MGA)	3MCC	TAZ
+47	3-Methylglutaconyl-Co-A Hydrotase Deficiency type III (MGA)	3MCC	OPA3
+48	3-Methylglutaconyl-Co-A Hydratase Deficiency type IV (MGA)	3MCC	AUH
+49	Argininemia/Arginase Deficiency (ARG)	ARG	ARG1
+50	Argininosuccinyl-CoA Lyase Deficiency (ASAL Deficiency)	CIT	ASL
+51	Beta-Ketothiolase Deficiency (BKT)	BKT	ACAT1
+52	Biopterin Disorders, co-factor regeneration	PKU	QDPR, PCBD1
+53	Carnitine Palmitoyl Transferase Deficiency type I (CPT1 Deficiency)	CPT I	CPT1A
+54	Carnitine Palmitoyl Transferase Deficiency type II (CPT2 Deficiency)	CPT II	CPT2
+55	Carnitine Transporter Deficiency (CTD)/Carnitine Uptake Defect (CUD)	CTD	SLC22A5
+56	Carnitine-Acylcarnitine Translocase Deficiency (CAT/CACT Deficiency)	CPT II	SLC25A20
+57	Citrullinemia type I (Argininosuccinic Acid Synthetase Deficiency (ASAS deficiency)/CIT-1)	CIT	ASS1
+58	Citrullinemia type II (Citrin Deficiency/CIT-II)	CIT	SLC25A13
+59	Glutaric Acidemia type I (GA1)	GA-I	GCDH
+60	Homocystinuria (Cystathionine Beta-Synthase Deficiency, HCY)	HCY	CBS
+61	Homocitrulinuria, Hyperornithinenia, Hyperammonemia (HHH)	HHH	SLC25A15
+62	Hypermethioninemia (MET/MAT Deficiency)	HCY	AHCY, MAT1A, GNMT
+63	Isobutyryl-CoA Dehydrogenase Deficiency (IBD/IBG Deficiency)	SCAD	ACAD8
+64	Isovaleric Acidemia (IVA)	IVA	IVD
+65	Long Chain Hyroxy Acyl-CoA Dehydrogenase Deficiency (LCHAD deficiency)	LCHAD	HADHA, HADHB
+66	Maple Syrup Urine Disease (MSUD)	MSUD	BCKDHA, BCKDHB, DBT,DLD, PPM1K
+67	Medium Chain Acyl-CoA Dehydrogenase Deficiency (MCAD Deficiency)	MCAD	ACADM
+68	Methylmalonic Acidemia Cbl A, B (MMA)	PA/MMA	MMAA, MMAB
+69	Methylmalonic Acidemia, Cbl C, D, F (MMA)	PA/MMA	MMACHC, MMADHC, LMBRD1
+70	Methylmalonic Acidemia mut 0 (MMA)	PA/MMA	MUT
+71	Methylmalonic Acidemia mut- (MMA)	PA/MMA	MUT
+72	Multiple Acyl-CoA Dehydrogenase Deficiency (MAD Deficiency)/Glutaric Acidemia type II (GA2)	GA2	ETFA, ETFB, ETFDH
+73	Multiple Carboxylase Deficiency (MCD)	MCD	HLCS, BTD
+76	Propionic Acidemia (PA)	PA/MMA	PCCA, PCCB
+77	Short Chain Acyl-CoA Dehydrogenase Deficiency (SCAD Deficiency)	SCAD	ACADS
+78	Trifunctional Protein Deficiency (TFP Deficiency)	TFP	HADHB, HADHA
+79	Tyrosinemia type I	TYRO1	FAH
+80	Tyrosinemia type II	TYRO	TAT
+81	Tyrosinemia type III	TYRO	HPD
+83	Very Long Chain Acyl-CoA Dehydrogenase Deficiency (VLCAD Deficiency)	VLCAD	ACADVL
+84	Gyrate Atrophy of the Choroid and Retina	HHH	OAT
+85	Prolinemia type-I	HYPRO	PRODH
+86	Prolinemia type-II	HYPRO	ALDH4A1
+87	Malonic Aciduria (MA)/Malonic Acidemia (MAL)	MAL	MLYCD
+88	2-Methyl-3-Hydroxybutyryl-CoA Dehydrogenase Deficiency (2M3HBA)	BKT	HSD17B10
+89	Ethylmalonic Encephalopathy (EE)	GA2	ETHE1
+92	Hydroxyprolinemia	unknown	PRODH, ALDH4A1
+93	Medium/Short Chain L-3 Hydroxy Acyl-CoA Dehydrogenase Deficiency (M/SCHADD)	MAL	HADH
+94	Prolinemia, unclassified	HYPRO	ALDH4A1, PRODH
+104	Methylmalonic Acidemia, unclassified (MMA)	PA/MMA	MMAA, MMAB, MMACHC, MMADHC, LMBRD1, CD320,  MUT, ABCD4, HCFC1, MCEE, TCN2, SUCLA2, SUCLG1, ACSF3
+105	3-Methylglutaconyl-Co-A Hydrotase Deficiency, unclassified (MGA)	MGA	AUH,TAZ,OPA3, DNAJC19,SERAC1, CLPB
+109	Remethylation Defects (MTHFR, MTR, MTRR, Cbl D v1, Cbl G Deficiencies)	RMD	MTHFR, MTRR, MTR, MMADHC,
+110	Ornithine Transcarbamylase Deficiency (OTC Deficiency)	OTC	OTC
+201	Carbamoyl Phosphate Synthetase I Deficiency(CPS1 Deficiency)	OTC	CPS1
+999	Special Circumstances (Human Review)	Various	999

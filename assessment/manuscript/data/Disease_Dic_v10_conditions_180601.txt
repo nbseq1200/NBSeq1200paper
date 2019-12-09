@@ -1,0 +1,61 @@
+DisorderID	condition	full.name	short.name
+0		No Disease	
+1	Core	Phenylketonuria (PKU) 	PKU
+2	Secondary	Hyperphenylalaninemia	Hyperphe
+3	Secondary	"Biopterin Disorders, co-factor biosynthesis"	BIOPT-BS
+4	Secondary	"Hyperphenylalaninemia, benign"	Hyperphe (benign)
+42	Secondary	2-Methylbutyryl-CoA Dehydrogenase Deficiency (2MBCD)	2MBCD
+43	Core	3-Hydroxy-3-Methylglutaryl-CoA Lyase Deficiency (HMG CoA Lyase Deficiency/Glutaric Aciduria)	3HMG
+44	Core	3-Methylcrotonyl-CoA Carboxylase Deficiency (3MCC Deficiency)	3MCC
+45	Secondary	3-Methylglutaconyl-Co-A Hydrotase Deficiency type I (MGA)	MGA type I
+46	Secondary	3-Methylglutaconyl-Co-A Hydrotase Deficiency type II (MGA)	MGA type II
+47	Secondary	3-Methylglutaconyl-Co-A Hydrotase Deficiency type III (MGA)	MGA type III
+48	Secondary	3-Methylglutaconyl-Co-A Hydratase Deficiency type IV (MGA)	MGA type IV
+49	Secondary	Argininemia/Arginase Deficiency (ARG)	ARG
+50	Core	Argininosuccinyl-CoA Lyase Deficiency (ASAL Deficiency)	ASAL
+51	Core	Beta-Ketothiolase Deficiency (BKT)	BKT
+52	Secondary	"Biopterin Disorders, co-factor regeneration"	BIOPT-REG
+53	Secondary	Carnitine Palmitoyl Transferase Deficiency type I (CPT1 Deficiency)	CPT-I
+54	Secondary	Carnitine Palmitoyl Transferase Deficiency type II (CPT2 Deficiency)	CPT-II
+55	Core	Carnitine Transporter Deficiency (CTD)/Carnitine Uptake Defect (CUD)	CTD/CUD
+56	Secondary	Carnitine-Acylcarnitine Translocase Deficiency (CAT/CACT Deficiency)	CAT/CACT
+57	Core	Citrullinemia type I (Argininosuccinic Acid Synthetase Deficiency (ASAS deficiency)/CIT-1)	CIT-I
+58	Secondary	Citrullinemia type II (Citrin Deficiency/CIT-II)	CIT-II
+59	Core	Glutaric Acidemia type I (GA1)	GA-I
+60	Core	"Homocystinuria (Cystathionine Beta-Synthase Deficiency, HCY)"	HCY
+61	Secondary	"Homocitrulinuria, Hyperornithinenia, Hyperammonemia (HHH)"	HHH
+62	Secondary	Hypermethioninemia (MET/MAT Deficiency)	MET/MAT
+63	Secondary	Isobutyryl-CoA Dehydrogenase Deficiency (IBD/IBG Deficiency)	IBD/IBG
+64	Core	Isovaleric Acidemia (IVA)	IVA
+65	Core	Long Chain Hyroxy Acyl-CoA Dehydrogenase Deficiency (LCHAD deficiency)	LCHAD
+66	Core	Maple Syrup Urine Disease (MSUD)	MSUD
+67	Core	Medium Chain Acyl-CoA Dehydrogenase Deficiency (MCAD Deficiency)	MCAD
+68	Core	"Methylmalonic Acidemia Cbl A, B (MMA)"	"MMA (Cbl A, B)"
+69	Secondary	"Methylmalonic Acidemia, Cbl C, D, F (MMA)"	"MMA (Cbl C,D,F)"
+70	Core	Methylmalonic Acidemia mut 0 (MMA)	MMA (mut 0)
+71	Core	Methylmalonic Acidemia mut- (MMA)	MMA (mut-)
+72	Secondary	Multiple Acyl-CoA Dehydrogenase Deficiency (MAD Deficiency)/Glutaric Acidemia type II (GA2)	GA-II
+73	Core	Multiple Carboxylase Deficiency (MCD)	MCD
+75	Secondary	Oxoprolinuria (Pyroglutamic Aciduria)	5-OXO
+76	Core	Propionic Acidemia (PA)	Propionic Acidemia
+77	Secondary	Short Chain Acyl-CoA Dehydrogenase Deficiency (SCAD Deficiency)	SCAD
+78	Core	Trifunctional Protein Deficiency (TFP Deficiency)	TFP
+79	Core	Tyrosinemia type I	Tyrosinemia type I
+80	Secondary	Tyrosinemia type II	Tyrosinemia type II
+81	Secondary	Tyrosinemia type III	Tyrosinemia type III
+83	Core	Very Long Chain Acyl-CoA Dehydrogenase Deficiency (VLCAD Deficiency)	VLCAD
+84	Secondary	Gyrate Atrophy of the Choroid and Retina	HOGA
+85	Secondary	Prolinemia type-I	Prolinemia type I
+86	Secondary	Prolinemia type-II	Prolinemia type II
+87	Secondary	Malonic Aciduria (MA)/Malonic Acidemia (MAL)	MAL
+88	Secondary	2-Methyl-3-Hydroxybutyryl-CoA Dehydrogenase Deficiency (2M3HBA)	2M3HBA
+89	Secondary	Ethylmalonic Encephalopathy (EE)	EE
+92	Secondary	Hydroxyprolinemia	Hydroxyprolinemia
+93	Secondary	Medium/Short Chain L-3 Hydroxy Acyl-CoA Dehydrogenase Deficiency (M/SCHADD)	M/SCHADD
+94	Secondary	Prolinemia	Prolinemia
+104	Secondary	"Methylmalonic Acidemia, unclassified (MMA)"	MMA (unclassified)
+105	Secondary	"3-Methylglutaconyl-Co-A Hydrotase Deficiency, unclassified (MGA)"	MGA (unclassified)
+109	Secondary	"Remethylation Defects (MTHFR, MTR, MTRR, Cbl D v1, Cbl G Deficiencies)"	Remethylation
+110	Secondary	Ornithine Transcarbamylase Deficiency (OTC Deficiency)	OTC
+201	Secondary	CPS1 deficiency	CPS1
+999	Depends	Special Circumstances (Human Review)	
