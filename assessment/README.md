@@ -1,6 +1,5 @@
-# NBSeq assessment
+# NBSeq assessment module
 
-assessment codes
 
 # 1. Download and install
 
