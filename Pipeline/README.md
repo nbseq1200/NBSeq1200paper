@@ -30,9 +30,9 @@ espaf | Population MAF of variant in Exome Sequencing Project (ESP)
 exacaf | Population MAF of variant in ExAC database
 cadd | CADD score of the variant
 meta_svm | meta_svm score of the variant in dbNSFP v2.0
-hgmdvar | HGMD category for the variant
-clnsg170907 | ClinVar clinical significance of the variant
-clinstars170907 | ClinVar review stars for the variant
+hgmdvar | HGMD category for the variant 
+clnsg170907 | ClinVar clinical significance of the variant (0 - Uncertain significance, 1 - not provided, 2 - Benign, 3 - Likely benign, 4 - Likely pathogenic, 5 - Pathogenic, 6 - drug response, 7 - histocompatibility, 255 - other)
+clinstars170907 | Number of ClinVar review stars for the variant
 appris | Whether transcript is a principal transcript according to Appris
 rf_score | Random forest based integrated splicing effect score in dbscSNV
 ug.gt | Genotype call of the variant by GATK UnifiedGenotyper
