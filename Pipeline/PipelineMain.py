@@ -289,10 +289,11 @@ def genpie2(genelist,transcript,callergt,gqthres,mafPAdb,mafPA, mafHGMDdb, mafHG
 
     if whichtoremove=='first':
         df2['dpos'] = np.abs(df2['pos'] - df2['pos'].shift(-1))
+	df2['dsample']=df2['sample']==df2['sample'].shift(-1
     
     elif whichtoremove=='second':
         df2['dpos'] = np.abs(df2['pos'] - df2['pos'].shift(1))
-	df2['sample']=df2['sample']==df2['sample'].shift(1)
+	df2['dsample']=df2['sample']==df2['sample'].shift(1)
     df2['dpos'].fillna(1000.0, inplace=True)
     df2['dsample'].fillna(False, inplace=True)
     
