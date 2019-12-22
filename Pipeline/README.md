@@ -21,7 +21,7 @@ sample| Sample ID
 chrom | Chromosome
 pos | Position
 ref | Reference Allele
-alt | alternate Allele
+alt | Alternate Allele
 gene | Gene name
 transcript| Gene transcript ID
 mutation | Mutation type according to Varant
