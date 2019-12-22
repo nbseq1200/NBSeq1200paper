@@ -12,6 +12,7 @@ python PipelineMain.py <input_file> <param_file> <output_directory>
 
 ## input_file format
 Tab-separated file of variants for each sample with the following columns.
+
 Column name | Description
 ----|-----
 sample| Sample ID
