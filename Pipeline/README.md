@@ -30,8 +30,8 @@ espaf | Population MAF of variant in Exome Sequencing Project (ESP)
 exacaf | Population MAF of variant in ExAC database
 cadd | CADD score of the variant
 meta_svm | meta_svm score of the variant in dbNSFP v2.0
-hgmdvar | HGMD category for the variant 
-clnsg170907 | ClinVar clinical significance of the variant (0 - Uncertain significance, 1 - not provided, 2 - Benign, 3 - Likely benign, 4 - Likely pathogenic, 5 - Pathogenic, 6 - drug response, 7 - histocompatibility, 255 - other)
+hgmdvar | HGMD category for the variant (DM - Disease-causing mutation, DM? - Likely Disease-causing mutation)
+clnsg170907 | ClinVar clinical significance of the variant (0 - Uncertain significance, 1 - not provided, 2 - Benign, 3 - Likely benign, 4 - Likely pathogenic, 5 - Pathogenic)
 clinstars170907 | Number of ClinVar review stars for the variant
 appris | Whether transcript is a principal transcript according to Appris
 rf_score | Random forest based integrated splicing effect score in dbscSNV
@@ -52,28 +52,28 @@ id	| Descriptor for the parameter combination.
 group| Additional descriptor. 
 cluster | Additional descriptor. 
 name	 |  Additional descriptor. 
-genelist | Single column file with list of gene names| 
-transcript|  Transcript | 	
+genelist | Single column file with list of gene names
+transcript|  Which transcript to select for the gene 
 gqthres | Minimum allowable GQ 	
-caller | Genotype calls from vcf
-disease_maf_db | Databases for  	
-disease_maf_thres| Population MAF threshold for disease databases
-hgmd| HGMD variant classification
-clnvar| 
+caller | Choice of genotype caller 
+disease_maf_db | Source databases for population MAF for curation arm
+disease_maf_thres| Population MAF threshold for database curated variants
+hgmd| HGMD variant categories to include in curation arm
+clnvar| Clinvar clinical significance categories to include in curation arm
 clnstar| Number of ClinVar review stars to include
-maf_db| Choice of population database for 
-maf_thres| Population MAF threshold for population database
-pa_list| List of terms for protein altering 
+maf_db|  Source databases for population MAF for impact arm
+maf_thres| Population MAF threshold for database impact arm variants
+pa_list| List of Varant-annotated categories to include in defining protein-altering variants in impact arm  
 pathogen1| 	Optional pathogenicity tool 1
-pathogen1_score| Optional pathogenicity tool 1
+pathogen1_score| Pathogenicity tool 1 pathogenicity score threshold
 pathogen2| Optional pathogenicity tool 2
-pathogen2_score| Optional pathogenicity tool 1
+pathogen2_score| Pathogenicity tool 2 pathogenicity score threshold
 pathogen3| Optional pathogenicity tool 3
-pathogen3_score| Optional pathogenicity tool 1
-loftee| 
-includefile| File path for list of NBSeq-reviewed variants to be included
-excludefile| File path for list of NBSeq reviewed variants to be excluded
-cnvfile| File path for 
+pathogen3_score|  Pathogenicity tool 3 pathogenicity score threshold
+loftee| Whether to include LOF variants as predicted by LOFTEE (Requires 'loftee' column in input_file) 
+includefile| File path for list of NBSeq-curated variants to be included
+excludefile| File path for list of NBSeq-curated variants to be excluded
+cnvfile| File path for CNV calls (3 column file - with sample ID, gene name, and zygosity of the CNV calls)
 
 
 
