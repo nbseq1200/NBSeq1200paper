@@ -48,7 +48,7 @@ pp.gq |  Genotype quality of the variant by Platypus
 
 ### param_file format
 
-Tab-separated file with the following columns. Each row defines a unique set of parameters. The file NBSeq1200.params in the 'param' folder defines the parameter sets used in the manuscript.
+Tab-separated file with the following columns. Each row defines a unique set of parameters. The file [NBSeq1200.params](param/NBSeq1200.params) in the 'param' folder defines the parameter sets used in the manuscript.
 
 Column name | Description
 ----|----
