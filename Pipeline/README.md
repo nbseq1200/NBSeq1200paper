@@ -10,7 +10,9 @@ python implementation of the screening exome analysis pipeline for NBSeq1200 pap
 python PipelineMain.py <input_file> <param_file> <output_directory>
 ```
 
+
 ## input_file format
+
 Tab-separated file of variants for each sample with the following columns.
 
 Column name | Description
@@ -43,12 +45,14 @@ pp.gt |  Genotype call of the variant by Platypus
 pp.gq |  Genotype quality of the variant by Platypus
 
 
+
 ## param_file format
-Tab-separated file with the following columns. 
+
+Tab-separated file with the following columns. Each row defines a unique set of parameters. The file NBSeq1200.params in the 'param' folder defines the parameter sets used in the manuscript.
 
 Column name | Description
 ----|----
-id	| Descriptor for the parameter combination. 
+id	| Descriptor for the parameter set. 
 group| Additional descriptor. 
 cluster | Additional descriptor. 
 name	 |  Additional descriptor. 
